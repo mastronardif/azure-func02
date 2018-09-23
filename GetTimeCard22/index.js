@@ -1,5 +1,4 @@
 "use strict";
-//var fs = require("fs")
 const mongodb = require('mongodb');
 var dbhelp = require('./dbhelp');
 
@@ -21,15 +20,23 @@ module.exports = async function (context, req) {
     let hasClient = client != null;
 
     if (client == null) {
-        mongodb.MongoClient.connect(uri, function(error, _client) {
-        if (error) {
-            context.log('Failed to connect to DB');
-            context.res = { status: 500, body: res.stack }
-            return context.done();
-        }
-        client = _client;
-        context.log('Connected');
+        mongodb.MongoClient.connect(uri, {useNewUrlParser: true }, function (error, _client) {   
+            if (error) {
+                context.log('Failed to connect to DB');
+                context.res = { status: 500, body: res.stack }
+                return context.done();
+            }
+            client = _client;
+            context.log('\n\tConnected 1st time!'); 
         });
+
+        context.res = {
+            headers: {
+            'Content-Type': 'text/html; charset=utf-8'
+            },
+            // status: 200, /* Defaults to 200 */
+            body: "First Time. Everyone in the pool.! "
+        };
       } else {
         context.log('\m\tUsing client!!! ');
 
@@ -45,20 +52,8 @@ module.exports = async function (context, req) {
         //context.done();  
       }
  
-};
 
-// async function doFunc(context, req) {
-//     var query = { cardId: "bk101" };
-//     var data = await chicoDemia(client.db("rdicode"), "templates", query) ;
-//     //console.log(`\n\n\n\ data = \n\n${data}\n******************\n`); 
-//     context.res = {
-//         headers: {
-//         'Content-Type': 'text/html; charset=utf-8'
-//         },
-//         // status: 200, /* Defaults to 200 */
-//         body: data
-//     };
-// }
+};
 
 /////
 async function chicoDemia(dbo, col, query) {

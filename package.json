@@ -1,0 +1,9 @@
+{
+    "name": "GetTimeCard",
+    "version": "0.0.1",
+    "dependencies": {
+        "jsrender": "^0.9.90",
+        "mime-types": "^2.1.20",
+        "mongodb": "^3.1.6"
+    }
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Boris Karloff",
+    "nickname": "BK",
+    "showNickname": true
+  },
+  {
+    "name": "Barney Rubble",
+    "nickname": "BR",
+    "showNickname": false
+  }
+]

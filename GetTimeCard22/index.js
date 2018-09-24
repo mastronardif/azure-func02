@@ -16,7 +16,9 @@ module.exports = async function (context, req) {
     // func  host start .\FuncAppTimeEntry\ -c "{\"name\": \"Donna\"}"
 
     context.log('\n\t GetTimeCard22 trigger function processed a request.\n');
-
+// inputs id's
+    let templateId = req.query.tid || 'timecard201';
+    let cardId     = req.query.cid || 'bk101';
     let hasClient = client != null;
 
     if (client == null) {
@@ -38,9 +40,13 @@ module.exports = async function (context, req) {
             body: "First Time. Everyone in the pool.! "
         };
       } else {
-        context.log('\m\tUsing client!!! ');
+        context.log('\n\tUsing client!!! ');
 
-        var query = { cardId: "bk101" };
+        //var query = { cardId: "bk101" };
+        var query = {qtemplate: { templateId: templateId }, 
+                         qcard: { cardId: cardId }                         
+    };
+
         var data = await chicoDemia(client.db("rdicode"), "templates", query) ;
         context.res = {
             headers: {
@@ -57,10 +63,13 @@ module.exports = async function (context, req) {
 
 /////
 async function chicoDemia(dbo, col, query) {
-    console.log('\n\t****\t async function chicoDemia(dbo, col, query) {')
+    console.log('\n\t****\t async function chicoDemia(dbo, col, query) {');
+    console.log(`\n\t****\t query = ${JSON.stringify(query)}`);
+    //qt = query.qtemplate;
+    //qc = querty.qcard;
 
-    var tmplateData = await dbhelp.getDataFromDBAA(client.db("rdicode"), "templates", { templateId: "timecard201" } )
-    //console.log(`\n\t *** data = BEGIN\n ${JSON.stringify(tmplateData)} \nEND`);
+    var tmplateData = await dbhelp.getDataFromDBAA(client.db("rdicode"), "templates", query.qtemplate )
+    //var tmplateData = await dbhelp.getDataFromDBAA(client.db("rdicode"), "templates", { templateId: "timecard201" } )
 
     var UserData = await dbhelp.getDataFromDBAA(client.db("rdicode"), "cardusers", { cardId: "bk101" } )
 

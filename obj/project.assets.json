@@ -910,10 +910,12 @@
   },
   "libraries": {
     "Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator/1.0.1": {
-      "sha512": "0tnKP2sy/Z7hAo8WG5U1EUBpThO/PyGlNdTCcCPs0y8SIsMiWjYOqgIdNs7qkMD+Q4y55BZhu1Sq45OF+GzrMQ==",
+      "sha512": "HBhZQlcbJa/f3IHi1gkirijegU/MfprxEjZeir8KJM33NrAZvl40j4Hs5ocJkcGKX1XxYaH/gk8njSN3818Qtg==",
       "type": "package",
       "path": "microsoft.azure.webjobs.script.extensionsmetadatagenerator/1.0.1",
+      "hasTools": true,
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "build/Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator.props",
         "build/Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator.targets",
@@ -3698,11 +3700,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\FxM\\Dev\\azure\\nodejs\\func02\\extensions.csproj",
+      "projectUniqueName": "c:\\FxM\\Dev\\azure\\nodejs\\func02\\extensions.csproj",
       "projectName": "extensions",
-      "projectPath": "C:\\FxM\\Dev\\azure\\nodejs\\func02\\extensions.csproj",
+      "projectPath": "c:\\FxM\\Dev\\azure\\nodejs\\func02\\extensions.csproj",
       "packagesPath": "C:\\Users\\gp\\.nuget\\packages\\",
-      "outputPath": "C:\\FxM\\Dev\\azure\\nodejs\\func02\\obj\\",
+      "outputPath": "c:\\FxM\\Dev\\azure\\nodejs\\func02\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
